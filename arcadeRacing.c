@@ -1,5 +1,5 @@
-#include ".\include\arLogic.h"
-#include ".\include\arGraphics.h"
+#include "./include/arLogic.h"
+#include "./include/arGraphics.h"
 
 #define TIME_TO_CHANGE_LINE 3//time in seconds to change the line on which opponent's car is currently on
 
@@ -33,6 +33,7 @@ int main(){
 	sfEvent event;
 	
 	opponents* opponent = createOpponent();
+	moveDirections moveDirection;
 
 	Player player = {0, 0, 0, 0, 0};
 	int score = 0;
@@ -80,7 +81,8 @@ int main(){
 			screenType = showSplashScreen(window, font, key, score, screenType, &trigger);
 			
 			if(screenType == restartGame){//if the user decided to play again we need to restart the game
-				reset(player, carSprite, &timeLimit, &timer, &elapsedSeconds, &score, &currentCurvature, &accumulatedCurvature);
+				printf("ok\n");
+				reset(&player, carSprite, &timeLimit, &timer, &elapsedSeconds, &score, &currentCurvature, &accumulatedCurvature);
 				opponent = createOpponent();
 			}
 			
